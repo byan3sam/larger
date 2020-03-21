@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "459793781851",
+    "firebase_url": "https://larger-than-lobster.firebaseio.com",
+    "project_id": "larger-than-lobster",
+    "storage_bucket": "larger-than-lobster.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:459793781851:android:4c47b5b71872e778af9b7e",
+        "android_client_info": {
+          "package_name": "com.example.largerthanlobster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "459793781851-9uuqfg7736t3l2irlej50kkfo43o347p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.largerthanlobster",
+            "certificate_hash": "34fab25e592c8130fc936d854687633c6f40e9e8"
+          }
+        },
+        {
+          "client_id": "459793781851-oqo4rnl3hmp2nuh645qu5sgc8b4jsr5v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6-cst3S2EzKPfPLCQp21NdxeS_7vtB04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "459793781851-oqo4rnl3hmp2nuh645qu5sgc8b4jsr5v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

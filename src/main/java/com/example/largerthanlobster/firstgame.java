@@ -1,0 +1,107 @@
+package com.example.largerthanlobster;
+
+import android.content.Intent;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Random;
+
+public class firstgame extends AppCompatActivity {
+
+    final int min = 1;
+    final int max = 100;
+    int x =0,winn=0,losee=0;
+    int random;
+    TextView boom,win,lose;
+    TextView Number;
+    boolean flag=true;
+    Handler handler;
+    Runnable runnable=null;
+    ImageView ho;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_firstgame);
+        Button Stop = findViewById(R.id.btn_stop);
+        Number =(TextView) findViewById(R.id.random);
+        win = findViewById(R.id.Win);
+        lose = findViewById(R.id.Lose);
+        final Handler handler= new Handler() ;
+        boom = findViewById(R.id.Boom);
+        Number.setText("Hi");
+        ho = findViewById(R.id.imageView4);
+        ho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
+            }
+        });
+        Stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                x++;
+                if(x%2!=0&&x<10){
+                    flag = false;
+
+                }
+
+                else{
+                    if (x < 10) {
+                        flag=true;
+
+                       handler.postDelayed(runnable,500);
+                    }
+
+                }
+                if(x==10){
+                    if (winn >= 3){
+                        boom.setTextColor(Color.GREEN);
+                        boom.setText("יאהווו , ניצחת");
+                    }
+                    else{
+                        boom.setTextColor(Color.RED);
+                        boom.setText("אוופס :( , נסה שוב ואולי תנצח");
+                    }
+                }
+            }
+
+
+
+        });
+
+
+
+        runnable=new Runnable() {
+            @Override
+            public void run() {
+                if(x<10){
+                    boom.setText("");
+
+                    random = new Random().nextInt((max - min) + 1) + min;
+                    if(!flag&&random%7==0){
+                        boom.setText("Boom");
+                        winn++;
+                    }
+                    else if((!flag&&random%7!=0)){
+
+                        losee++;
+                    }
+
+                    win.setText(""+winn);
+                    lose.setText(""+(losee));
+                    Number.setText(" " + random);
+                    if(flag)
+                        handler.postDelayed(this,200);}
+            }
+        };
+        handler.postDelayed(runnable,100);
+    }
+}
