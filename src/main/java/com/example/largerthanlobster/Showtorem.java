@@ -32,8 +32,7 @@ ListView listView;
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot newSnapshot : dataSnapshot.getChildren()){
                     rshema x = newSnapshot.getValue(rshema.class);
-//                    x=" "+newSnapshot.getValue(rshema.class).getTor().toString() +"/n" + newSnapshot.getValue(rshema.class).getDate().toString()+
-//                            "/n"+newSnapshot.getValue(rshema.class).getHour().toString()+"/n"+newSnapshot.getValue(rshema.class).getPlace().toString() ;
+
                     arrayList.add(x.tostring());
                 }
                 ArrayAdapter<String> arrayAdapter= new ArrayAdapter(Showtorem.this,android.R.layout.simple_list_item_1,arrayList);

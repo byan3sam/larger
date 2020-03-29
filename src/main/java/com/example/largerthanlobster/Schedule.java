@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -65,6 +66,8 @@ EditText delete;
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot d:dataSnapshot.getChildren()) {
                             myRef1.child(d.getKey()).removeValue();
+                            Toast.makeText(Schedule.this,"התור נמחק מלוח הזמנים",Toast.LENGTH_LONG).show();
+
                         }
 
                     }

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class contact extends AppCompatActivity {
-ImageView phone,web;
+ImageView phone,web,ho;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +17,14 @@ ImageView phone,web;
         setContentView(R.layout.activity_contact);
         phone=findViewById(R.id.imageView6);
         web=findViewById(R.id.imageView7);
+        ho=findViewById(R.id.imageView8);
+        ho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i= new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
+            }
+        });
         phone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
