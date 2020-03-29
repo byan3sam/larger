@@ -2,6 +2,7 @@ package com.example.largerthanlobster;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -56,10 +57,23 @@ addtor();
             @Override
             public void onClick(View v) {
                 im.setVisibility(View.VISIBLE);
+                if (TextUtils.isEmpty(torr.getText().toString().trim())){
+                    torr.setError("נא להוסיף תור");
+                }
+                if (TextUtils.isEmpty(datee.getText().toString().trim())){
+                    datee.setError("נא להוסיף תאריך");
+                }
+                if (TextUtils.isEmpty(placee.getText().toString().trim())){
+                    placee.setError("נא להוסיף מקום");
+                }
+                if (TextUtils.isEmpty(hourr.getText().toString().trim())){
+                    hourr.setError("נא להוסיף שעה");
+                }
                 c.setPlace(placee.getText().toString());
                 c.setDate(datee.getText().toString());
                 c.setHour(hourr.getText().toString());
                 c.setTor(torr.getText().toString());
+
                 myRef1.child(c.getTor()).setValue(c).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {

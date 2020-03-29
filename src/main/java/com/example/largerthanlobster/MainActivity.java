@@ -13,10 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class MainActivity extends AppCompatActivity {
     FirebaseDatabase database1 = FirebaseDatabase.getInstance();
     DatabaseReference myRef1 ;
-Button game;
-Button story;
-Button sc;
-Button wriding;
+Button game,story,sc,wriding,cont;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +23,14 @@ game= findViewById(R.id.button);
 story = findViewById(R.id.button2);
 sc= findViewById(R.id.button3);
 wriding= findViewById(R.id.button4);
-
+cont=findViewById(R.id.cont);
+cont.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent i= new Intent(getApplicationContext(),contact.class);
+        startActivity(i);
+    }
+});
 game.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
