@@ -11,10 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".contact"></activity>
+        <activity android:name=".storyselected"></activity>
+        <activity android:name=".Showstories" />
+        <activity android:name=".torselected" />
+        <activity android:name=".sign_up" />
+        <activity android:name=".log_in" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".contact" />
         <activity android:name=".secondgame" />
         <activity android:name=".firstgame" />
-        <activity android:name=".readstory" />
         <activity android:name=".story1" />
         <activity android:name=".Showtorem" />
         <activity android:name=".adddd_story" />
@@ -23,7 +28,7 @@
         <activity android:name=".games" />
         <activity android:name=".rshomtor" />
         <activity android:name=".Schedule" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".choose">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

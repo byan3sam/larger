@@ -1,6 +1,8 @@
 package com.example.largerthanlobster;
 
-public class rshema {
+import java.io.Serializable;
+
+public class rshema implements Serializable  {
     private String tor,place,date,hour ;
 
     public rshema(){}

@@ -1,5 +1,6 @@
 package com.example.largerthanlobster;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,39 +20,39 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Showtorem extends AppCompatActivity {
+public class Showstories extends AppCompatActivity {
+
     FirebaseDatabase database1 = FirebaseDatabase.getInstance();
     DatabaseReference myRef1 ;
     FirebaseAuth auth = FirebaseAuth.getInstance();
-    ArrayList<rshema> arrayList= new ArrayList<>();
-ListView listView;
+    ArrayList<add_story> arrayList= new ArrayList<>();
+    ListView listView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_showtorem);
+        setContentView(R.layout.activity_showstories);
         listView=findViewById(R.id.list);
         myRef1= database1.getReference("batient");
-        final myadabter ma= new myadabter(Showtorem.this,arrayList);
+        final myadabter2 ma= new myadabter2(Showstories.this,arrayList);
         listView.setAdapter(ma);
-        myRef1.child(auth.getCurrentUser().getUid()).child("mytor").addValueEventListener(new ValueEventListener() {
+        myRef1.child(auth.getCurrentUser().getUid()).child("mystories").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot newSnapshot : dataSnapshot.getChildren()){
-                 arrayList.add(newSnapshot.getValue(rshema.class));
+                    arrayList.add(newSnapshot.getValue(add_story.class));
                 }
-             ma.notifyDataSetChanged();
+                ma.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(Showtorem.this, databaseError.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(Showstories.this, databaseError.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(Showtorem.this,torselected.class);
-                //i.putExtra("tor",(rshema)parent.getAdapter().getItem(position));
+                Intent i = new Intent(Showstories.this,storyselected.class);
                 i.putExtra("pos",position);
                 startActivity(i);
             }
