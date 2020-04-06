@@ -35,7 +35,6 @@ import java.util.Calendar;
 public class rshomtor extends AppCompatActivity {
     FirebaseDatabase database1 = FirebaseDatabase.getInstance();
     DatabaseReference myRef1 ;
-    ImageView ho;
     FirebaseAuth auth;
     Button add;
     TextView test,tvdateshow,hourr;
@@ -48,9 +47,7 @@ public class rshomtor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rshomtor);
         torem= new ArrayList<rshema>();
-        ho = findViewById(R.id.imageView11);
         placee= findViewById(R.id.editText);
-        test=findViewById(R.id.textView3);
         torr= findViewById(R.id.editText4);
         tvdateshow= findViewById(R.id.textView4);
         btn_timepick=findViewById(R.id.imageView15);
@@ -79,13 +76,6 @@ public class rshomtor extends AppCompatActivity {
 
 
 
-        ho.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i= new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(i);
-            }
-        });
 
         Calendar calendar = Calendar.getInstance();
         String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
@@ -179,6 +169,7 @@ im.setVisibility(View.VISIBLE);
 
     }
 });
+ startActivity(new Intent(rshomtor.this,Schedule.class));
 
                 }
             }

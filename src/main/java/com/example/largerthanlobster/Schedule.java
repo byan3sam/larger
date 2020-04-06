@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Schedule extends AppCompatActivity {
     FirebaseDatabase database1 = FirebaseDatabase.getInstance();
     DatabaseReference myRef1 ;
-ImageButton ho;
+ImageView ho;
 Button add,del,sho;
 EditText delete;
     @Override
@@ -23,7 +24,7 @@ EditText delete;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
         myRef1= database1.getReference("torem");
-        ho = findViewById(R.id.imageButton4);
+        ho = findViewById(R.id.imageView2);
 
         add= findViewById(R.id.button7);
         sho= findViewById(R.id.button6);

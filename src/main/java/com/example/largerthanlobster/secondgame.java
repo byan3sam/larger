@@ -79,10 +79,10 @@ ho.setOnClickListener(new View.OnClickListener() {
                       finum.setText(" ");
                       showcount.setText(" ");
                       mes.setText(" ");
+                      startActivity(new Intent(secondgame.this,secondgame.class));
                     }
 
                 });
-
                 }
 
             }

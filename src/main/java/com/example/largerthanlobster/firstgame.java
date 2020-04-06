@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,12 +20,12 @@ public class firstgame extends AppCompatActivity {
     final int max = 100;
     int x =0,winn=0,losee=0;
     int random;
-    TextView boom,win,lose;
-    TextView Number;
+    TextView boom,win,lose,Number,again;
     boolean flag=true;
     Handler handler;
     Runnable runnable=null;
     ImageView ho;
+    ImageButton trya;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +33,11 @@ public class firstgame extends AppCompatActivity {
         Button Stop = findViewById(R.id.btn_stop);
         Number =(TextView) findViewById(R.id.random);
         win = findViewById(R.id.Win);
+        again=findViewById(R.id.textView3);
         lose = findViewById(R.id.Lose);
+        trya=findViewById(R.id.imageButton);
+        trya.setVisibility(View.INVISIBLE);
+        again.setVisibility(View.INVISIBLE);
         final Handler handler= new Handler() ;
         boom = findViewById(R.id.Boom);
         Number.setText("Hi");
@@ -70,6 +75,18 @@ public class firstgame extends AppCompatActivity {
                         boom.setTextColor(Color.RED);
                         boom.setText("אוופס :( , נסה שוב ואולי תנצח");
                     }
+                    trya.setVisibility(View.VISIBLE);
+                    again.setVisibility(View.VISIBLE);
+trya.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        x =0;
+        winn=0;
+        losee=0;
+        startActivity(new Intent(firstgame.this,firstgame.class));
+    }
+});
+
                 }
             }
 

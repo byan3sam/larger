@@ -6,7 +6,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,7 +25,6 @@ import java.util.ArrayList;
 public class adddd_story extends AppCompatActivity {
     FirebaseDatabase database1 = FirebaseDatabase.getInstance();
     DatabaseReference myRef2 ;
-    ImageView h;
     Button add;
     ArrayList<add_story> mystory;
     EditText name,writer,text;
@@ -36,7 +34,6 @@ public class adddd_story extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adddd_story);
-        h=findViewById(R.id.imageView2);
         add =findViewById(R.id.button14);
         myRef2= database1.getReference("batient");
         name=findViewById(R.id.editText7);
@@ -45,13 +42,6 @@ public class adddd_story extends AppCompatActivity {
         auth=FirebaseAuth.getInstance();
         mystory= new ArrayList<add_story>();
 
-        h.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i=new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(i);
-            }
-        });
         addst();
 
     }
@@ -99,7 +89,7 @@ public class adddd_story extends AppCompatActivity {
 
                         }
                     });
-
+                    startActivity(new Intent(adddd_story.this,Schedule.class));
     }}
 });
 
