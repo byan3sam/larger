@@ -24,6 +24,15 @@ story = findViewById(R.id.button2);
 sc= findViewById(R.id.button3);
 wriding= findViewById(R.id.button4);
 cont=findViewById(R.id.cont);
+findViewById(R.id.cont2).setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+     Intent i=new Intent(MainActivity.this,choose.class);
+     i.putExtra("num",1);
+        startActivity(i);
+
+    }
+});
 cont.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
@@ -62,5 +71,8 @@ wriding.setOnClickListener(new View.OnClickListener() {
         startActivity(i);
     }
 });
+    }
+    public void onBackPressed(){
+
     }
 }

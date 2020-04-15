@@ -58,9 +58,14 @@
         android:layout_marginLeft="60dp"
         android:layout_marginTop="60dp"
         android:layout_marginRight="60dp"
+        android:background="#DC6868"
         android:text="signup" />
 
-
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="match_parent"
+        android:layout_height="242dp"
+        android:src="@drawable/cutecancer" />
 
 
 </LinearLayout>

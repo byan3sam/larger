@@ -1,6 +1,5 @@
 package com.example.largerthanlobster;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,13 +33,14 @@ Button de;
 
         //rshema selected = (rshema) getIntent().getSerializableExtra("tor");
        // tn.setText(selected.getTor() + " " );
-        myRef1.addValueEventListener(new ValueEventListener() {
+        myRef1.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 b=dataSnapshot.getValue(batient.class);
                  if( b.getMytor()!=null){
-                 r = b.getMytor().get(getIntent().getIntExtra("pos",0));
-                 tn.setText(" :תור "+r.getTor()+" :תאריך "+r.getDate()+" :שעה "+r.getHour()+" :מקום "+r.getPlace());}
+                     r = b.getMytor().get(getIntent().getIntExtra("pos",0));
+                     tn.setText(" appointment:   "+r.getTor()+"\n"+" date:   "+r.getDate()+"\n"+" hour:   "+r.getHour()+"\n"+" place:   "+r.getPlace());
+                 }
 
             }
 
@@ -54,7 +54,7 @@ Button de;
             public void onClick(View v) {
             b.getMytor().remove(getIntent().getIntExtra("pos",0));
             myRef1.setValue(b);
-                startActivity(new Intent(torselected.this, Showtorem.class));
+               finish();
             }
         });
     }

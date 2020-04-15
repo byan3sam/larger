@@ -7,6 +7,24 @@
     android:background="@drawable/needle"
     tools:context=".contact">
 
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="108dp"
+        android:layout_height="62dp"
+        android:background="#C31212"
+        android:text='לביקור באתר "האגודה למלחמה בסרטן "'
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textIsSelectable="false"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.841"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.674" />
+
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="162dp"
@@ -14,33 +32,32 @@
         android:background="#00000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.261"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.302"
+        app:layout_constraintVertical_bias="0.345"
         app:srcCompat="@drawable/ic_local_phone_black_24dp"
         tools:ignore="VectorDrawableCompat" />
 
-
     <ImageView
         android:id="@+id/imageView7"
-        android:backgroundTint="#00000000"
         android:layout_width="164dp"
         android:layout_height="179dp"
         android:background="#00000000"
+        android:backgroundTint="#00000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.255"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.733"
+        app:layout_constraintVertical_bias="0.713"
         app:srcCompat="@drawable/ic_web_black_24dp"
         tools:ignore="VectorDrawableCompat" />
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="57dp"
-        android:layout_height="51dp"
+        android:layout_width="62dp"
+        android:layout_height="61dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.098"
@@ -49,4 +66,38 @@
         app:layout_constraintVertical_bias="0.869"
         app:srcCompat="@drawable/ic_home_black_24dp"
         tools:ignore="VectorDrawableCompat" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="108dp"
+        android:layout_height="62dp"
+        android:background="#C31212"
+        android:text="צור קשר לכל שאילה "
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textIsSelectable="false"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.841"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.378" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="108dp"
+        android:layout_height="62dp"
+        android:background="#C31212"
+        android:text="צור קשר לכל   שאילה "
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textIsSelectable="false"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.841"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.378" />
 </androidx.constraintlayout.widget.ConstraintLayout>

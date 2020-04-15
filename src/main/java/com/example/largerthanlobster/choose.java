@@ -20,6 +20,7 @@ public class choose extends AppCompatActivity {
 Button btnsignup , btnlogin ,con;
 TextView textView;
 FirebaseAuth auth;
+int b=0;
     FirebaseDatabase database1 = FirebaseDatabase.getInstance();
     DatabaseReference myRef1 ;
     @Override
@@ -29,26 +30,38 @@ FirebaseAuth auth;
         btnlogin=findViewById(R.id.button17);
         textView=findViewById(R.id.textView16);
         btnsignup=findViewById(R.id.button18);
-        auth=FirebaseAuth.getInstance();
-        myRef1= database1.getReference("batient").child(auth.getCurrentUser().getUid());
-
-
-        if(auth.getCurrentUser()!=null){
-            btnlogin.setEnabled(false);
-        }
         con=findViewById(R.id.button8);
-        myRef1.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                batient b= dataSnapshot.getValue(batient.class);
-              textView.setText(b.getEmail());
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+        auth=FirebaseAuth.getInstance();
+        Bundle ex= getIntent().getExtras();
+        if(ex!=null)
+        b=ex.getInt("num");
+        if(b!=1) {
+            if(auth.getCurrentUser() != null) {
+                myRef1 = database1.getReference("batient").child(auth.getCurrentUser().getUid());
+                con.setEnabled(true);
             }
-        });
+        }
+        else{
+            myRef1 = database1.getReference("batient");
+            con.setEnabled(false);
+        }
+
+        if(myRef1 != null) {
+            myRef1.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    batient b = dataSnapshot.getValue(batient.class);
+                    if (b != null)
+                        textView.setText(b.getEmail());
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
         con.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

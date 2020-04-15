@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -18,27 +19,41 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Showtorem extends AppCompatActivity {
     FirebaseDatabase database1 = FirebaseDatabase.getInstance();
     DatabaseReference myRef1 ;
     FirebaseAuth auth = FirebaseAuth.getInstance();
-    ArrayList<rshema> arrayList= new ArrayList<>();
+   public static ArrayList<rshema> arrayList= new ArrayList<>();
+   Calendar calendar = Calendar.getInstance();
 ListView listView;
+ImageView ho;
+String currentDate;
+    myadabter ma;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_showtorem);
         listView=findViewById(R.id.list);
+        ho= findViewById(R.id.imageView17);
         myRef1= database1.getReference("batient");
-        final myadabter ma= new myadabter(Showtorem.this,arrayList);
+        ma= new myadabter(Showtorem.this,arrayList);
         listView.setAdapter(ma);
+        ho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Showtorem.this,MainActivity.class));
+            }
+        });
         myRef1.child(auth.getCurrentUser().getUid()).child("mytor").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                arrayList.clear();
                 for (DataSnapshot newSnapshot : dataSnapshot.getChildren()){
                  arrayList.add(newSnapshot.getValue(rshema.class));
                 }
+
              ma.notifyDataSetChanged();
             }
 
@@ -59,6 +74,8 @@ ListView listView;
 
 
         //arrayAdapter.notifyDataSetChanged();
+
+
     }
 
 }

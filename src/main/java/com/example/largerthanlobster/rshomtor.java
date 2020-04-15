@@ -31,16 +31,16 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-
 public class rshomtor extends AppCompatActivity {
     FirebaseDatabase database1 = FirebaseDatabase.getInstance();
     DatabaseReference myRef1 ;
     FirebaseAuth auth;
     Button add;
-    TextView test,tvdateshow,hourr;
+    String currentDate;
+    TextView tvdateshow,hourr;
     EditText torr,placee;
     rshema c= new rshema();
-    ImageView im,btn_datepicker,btn_timepick;
+    ImageView btn_datepicker,btn_timepick;
     ArrayList<rshema> torem;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,15 +54,23 @@ public class rshomtor extends AppCompatActivity {
         hourr= findViewById(R.id.textView15);
         add= findViewById(R.id.button5);
         btn_datepicker=findViewById(R.id.pickdate);
-        im=findViewById(R.id.imageView3);
-        im.setVisibility(View.INVISIBLE);
+
         myRef1= database1.getReference("batient");
         auth=FirebaseAuth.getInstance();
+
+
+      // myRef1.child(auth.getCurrentUser().getUid()).child("mytor").removeValue();
+
+
+        Calendar c1 = Calendar.getInstance();
+        currentDate = DateFormat.getDateInstance(DateFormat.DATE_FIELD).format(c1.getTime());
+
         btn_datepicker.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             // call PickDate for Date
             PickDate();
+
         }
     });
 
@@ -77,14 +85,7 @@ public class rshomtor extends AppCompatActivity {
 
 
 
-        Calendar calendar = Calendar.getInstance();
-        String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
- if (currentDate.equals(tvdateshow.getText().toString().trim())){
-    test.setText("jjj");
- }
-
-        addtor();
-
+addtor();
 }
 
 
@@ -96,14 +97,20 @@ public class rshomtor extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
-                String date = dayOfMonth + "/" + (month + 1) + "/" + year;
+                String date =(month + 1)+ "/" +  dayOfMonth  + "/" + year%100;
                 /// here set date value in txtview
                 tvdateshow.setText(date);
+
+
+
+
             }
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
 
     }
+
+
 
     private void PickTime(){
         TimePickerDialog timePickerDialog = new TimePickerDialog(rshomtor.this, new TimePickerDialog.OnTimeSetListener() {
@@ -126,6 +133,7 @@ public class rshomtor extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (TextUtils.isEmpty(torr.getText().toString().trim())) {
                     torr.setError("נא להוסיף תור");
                 }
@@ -145,31 +153,37 @@ public class rshomtor extends AppCompatActivity {
                     c.setHour(hourr.getText().toString());
                     c.setTor(torr.getText().toString());
                     torem.add(c);
-myRef1.child(auth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-    @Override
-    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-    batient b=   dataSnapshot.getValue(batient.class);
-    b.setMytor(torem);
-    myRef1.child(auth.getCurrentUser().getUid()).setValue(b).addOnSuccessListener(new OnSuccessListener<Void>() {
-        @Override
-        public void onSuccess(Void aVoid) {
-            Toast.makeText(rshomtor.this,"התור נוסף ללוח הזמנים ",Toast.LENGTH_LONG).show();
-im.setVisibility(View.VISIBLE);
-        }
-    }).addOnFailureListener(new OnFailureListener() {
-        @Override
-        public void onFailure(@NonNull Exception e) {
-            Toast.makeText(rshomtor.this,e.getMessage(),Toast.LENGTH_LONG).show();
-        }
-    });;
+                    myRef1.child(auth.getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            batient b=dataSnapshot.getValue(batient.class);
+                            ArrayList<rshema> tmp = b.getMytor();
+                            if(tmp == null)
+                                tmp = new ArrayList<>();
+                            for(rshema value: torem){
+                                tmp.add(value);
+                            }
+                            b.setMytor(tmp);
+                            myRef1.child(auth.getCurrentUser().getUid()).setValue(b).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(rshomtor.this,"התור נוסף ללוח הזמנים ",Toast.LENGTH_LONG).show();
 
-    }
-    @Override
-    public void onCancelled(@NonNull DatabaseError databaseError) {
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(rshomtor.this,e.getMessage(),Toast.LENGTH_LONG).show();
+                                }
+                            });;
 
-    }
-});
- startActivity(new Intent(rshomtor.this,Schedule.class));
+                        }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                    startActivity(new Intent(rshomtor.this,Schedule.class));
 
                 }
             }

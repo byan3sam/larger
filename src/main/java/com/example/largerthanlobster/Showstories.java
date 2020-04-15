@@ -24,6 +24,7 @@ public class Showstories extends AppCompatActivity {
 
     FirebaseDatabase database1 = FirebaseDatabase.getInstance();
     DatabaseReference myRef1 ;
+    myadabter2 ma;
     FirebaseAuth auth = FirebaseAuth.getInstance();
     ArrayList<add_story> arrayList= new ArrayList<>();
     ListView listView;
@@ -33,11 +34,12 @@ public class Showstories extends AppCompatActivity {
         setContentView(R.layout.activity_showstories);
         listView=findViewById(R.id.list);
         myRef1= database1.getReference("batient");
-        final myadabter2 ma= new myadabter2(Showstories.this,arrayList);
+        ma= new myadabter2(Showstories.this,arrayList);
         listView.setAdapter(ma);
         myRef1.child(auth.getCurrentUser().getUid()).child("mystories").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                arrayList.clear();
                 for (DataSnapshot newSnapshot : dataSnapshot.getChildren()){
                     arrayList.add(newSnapshot.getValue(add_story.class));
                 }

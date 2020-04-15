@@ -65,11 +65,18 @@ public class adddd_story extends AppCompatActivity {
                 s.setWriter((writer.getText().toString()));
                 s.setSt(text.getText().toString());
                  mystory.add(s);
-                    myRef2.child(auth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                    myRef2.child(auth.getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             batient st=   dataSnapshot.getValue(batient.class);
-                            st.setMystories(mystory);
+                            ArrayList<add_story> tmp = st.getMystories();
+                            if(tmp == null)
+                                tmp = new ArrayList<>();
+                            for(add_story value: mystory){
+                                tmp.add(value);
+                            }
+                            st.setMystories(tmp);
+
                             myRef2.child(auth.getCurrentUser().getUid()).setValue(st).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
@@ -89,7 +96,7 @@ public class adddd_story extends AppCompatActivity {
 
                         }
                     });
-                    startActivity(new Intent(adddd_story.this,Schedule.class));
+                    startActivity(new Intent(adddd_story.this,writingreading.class));
     }}
 });
 

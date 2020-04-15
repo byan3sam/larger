@@ -69,6 +69,7 @@ Dialog d1,d2;
             @Override
             public void onClick(View v) {
                 d2.setContentView(R.layout.dialog2);
+                ImageView bom;
                 Button end2;
                 end2=(Button) d2.findViewById(R.id.end2);
                 end2.setOnClickListener(new View.OnClickListener() {

@@ -39,5 +39,12 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
         android:layout_marginRight="20dp"
+        android:background="#E41F1F"
         android:text="login" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="306dp"
+        app:srcCompat="@drawable/lobster1" />
 </LinearLayout>

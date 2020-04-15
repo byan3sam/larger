@@ -1,6 +1,5 @@
 package com.example.largerthanlobster;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,13 +34,13 @@ public class storyselected extends AppCompatActivity {
 
         //rshema selected = (rshema) getIntent().getSerializableExtra("tor");
         // tn.setText(selected.getTor() + " " );
-        myRef1.addValueEventListener(new ValueEventListener() {
+        myRef1.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 b=dataSnapshot.getValue(batient.class);
                 if( b.getMystories()!=null){
                     r = b.getMystories().get(getIntent().getIntExtra("pos",0));
-                    tn.setText(" :שם סיפור"+r.getName()+" :שם כותב   "+r.getWriter()+" :תוכן " + r.getSt());}
+                    tn.setText("story name :    "+r.getName()+"\n"+"writer:    "+r.getWriter()+"\n"+"story:    " + r.getSt());}
 
             }
 
@@ -55,7 +54,7 @@ public class storyselected extends AppCompatActivity {
             public void onClick(View v) {
                 b.getMystories().remove(getIntent().getIntExtra("pos",0));
                 myRef1.setValue(b);
-                startActivity(new Intent(storyselected.this, Showstories.class));
+                finish();
             }
         });
     }
