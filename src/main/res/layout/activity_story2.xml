@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".story1">
+    tools:context=".story2">
 
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="362dp"
-        android:layout_height="412dp"
+        android:id="@+id/st2"
+        android:layout_width="354dp"
+        android:layout_height="473dp"
         android:text=""
         android:textSize="18sp"
         android:textStyle="normal"
@@ -22,18 +22,19 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="134dp"
+        android:layout_height="153dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.059"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/mart" />
+        app:srcCompat="@drawable/rapunzle" />
+
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/hooome"
         android:layout_width="86dp"
         android:layout_height="101dp"
         app:layout_constraintBottom_toBottomOf="parent"

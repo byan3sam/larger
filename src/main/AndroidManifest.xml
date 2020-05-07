@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.largerthanlobster">
- 
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,9 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".story2"></activity>
+
         <activity android:name=".storyselected" />
         <activity android:name=".Showstories" />
         <activity android:name=".torselected" />
+
+
         <activity android:name=".sign_up" />
         <activity android:name=".log_in" />
         <activity android:name=".MainActivity" />
@@ -28,7 +33,6 @@
         <activity android:name=".rshomtor" />
         <activity android:name=".Schedule" />
         <activity android:name=".choose">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

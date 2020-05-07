@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class stories extends AppCompatActivity {
 ImageView ho;
-Storypt1 storypt1;
 Button Story1;
 
     @Override
@@ -22,7 +21,13 @@ Button Story1;
         Story1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent();
+             startActivity(new Intent(stories.this,story1.class));
+            }
+        });
+        findViewById(R.id.button10).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(stories.this,story2.class));
             }
         });
         ho.setOnClickListener(new View.OnClickListener() {
@@ -35,8 +40,5 @@ Button Story1;
 
 
     }
-    public void Intent(){
-        storypt1=new Storypt1(this);
-        setContentView(storypt1);
-    }
+
 }
