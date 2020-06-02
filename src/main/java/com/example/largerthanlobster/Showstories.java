@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class Showstories extends AppCompatActivity {
     FirebaseAuth auth = FirebaseAuth.getInstance();
     ArrayList<add_story> arrayList= new ArrayList<>();
     ListView listView;
+    ImageView h;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +37,14 @@ public class Showstories extends AppCompatActivity {
         listView=findViewById(R.id.list);
         myRef1= database1.getReference("batient");
         ma= new myadabter2(Showstories.this,arrayList);
+        h=findViewById(R.id.imageView17);
         listView.setAdapter(ma);
+        h.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Showstories.this,MainActivity.class));
+            }
+        });
         myRef1.child(auth.getCurrentUser().getUid()).child("mystories").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

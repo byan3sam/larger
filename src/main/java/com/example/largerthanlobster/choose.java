@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,7 +34,12 @@ int b=0;
         con=findViewById(R.id.button8);
 
         auth=FirebaseAuth.getInstance();
+        FirebaseUser user = auth.getCurrentUser();
+
         Bundle ex= getIntent().getExtras();
+        if(auth.getCurrentUser() == null) {
+            con.setEnabled(false);
+        }
         if(ex!=null)
         b=ex.getInt("num");
         if(b!=1) {

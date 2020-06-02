@@ -20,6 +20,7 @@ public class firstgame extends AppCompatActivity {
     final int max = 100;
     int x =0,winn=0,losee=0;
     int random;
+    Button Stop;
     TextView boom,win,lose,Number,again;
     boolean flag=true;
     Handler handler;
@@ -30,7 +31,7 @@ public class firstgame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firstgame);
-        Button Stop = findViewById(R.id.btn_stop);
+        Stop = findViewById(R.id.btn_stop);
         Number =(TextView) findViewById(R.id.random);
         win = findViewById(R.id.Win);
         again=findViewById(R.id.textView3);
@@ -67,6 +68,7 @@ public class firstgame extends AppCompatActivity {
 
                 }
                 if(x==10){
+                    Stop.setEnabled(false);
                     if (winn >= 3){
                         boom.setTextColor(Color.GREEN);
                         boom.setText("יאהווו , ניצחת");
@@ -74,6 +76,7 @@ public class firstgame extends AppCompatActivity {
                     else{
                         boom.setTextColor(Color.RED);
                         boom.setText("אוופס :( , נסה שוב ואולי תנצח");
+
                     }
                     trya.setVisibility(View.VISIBLE);
                     again.setVisibility(View.VISIBLE);

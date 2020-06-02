@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/needle"
+    android:background="@drawable/needle2"
     tools:context=".contact">
 
 
@@ -89,7 +89,7 @@
         android:layout_width="108dp"
         android:layout_height="62dp"
         android:background="#C31212"
-        android:text="צור קשר לכל   שאילה "
+        android:text="צור קשר לכל   שאלה "
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"
         android:textIsSelectable="false"

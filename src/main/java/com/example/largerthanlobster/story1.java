@@ -13,7 +13,7 @@ TextView t;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_story1);
-       t=findViewById(R.id.textView6);
+       t=findViewById(R.id.mr);
        t.setText("מרידה\n" +
                "\n" +
                "כל החיים שלי אהבתי להשתולל, לצחוק, וללכת להרפתקאות, ההורים שלי לא יכלו לתפוס אותי אף פעם. גדלתי ואהבתי ללכת לשבילים שבטבע, לקפוץ מעל סלעים, ללכת שעות על הר ענקי, וכולם היו מופתעים מהיכולות שלי, אני כל כך חזקה ! \n" +

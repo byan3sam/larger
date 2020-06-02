@@ -39,7 +39,7 @@ Button de;
                 b=dataSnapshot.getValue(batient.class);
                  if( b.getMytor()!=null){
                      r = b.getMytor().get(getIntent().getIntExtra("pos",0));
-                     tn.setText(" appointment:   "+r.getTor()+"\n"+" date:   "+r.getDate()+"\n"+" hour:   "+r.getHour()+"\n"+" place:   "+r.getPlace());
+                     tn.setText(" appointment:   "+r.getTor()+ "\n"+" date:   "+r.getDate()+"\n"+" hour:   "+r.getHour()+"\n"+" place:   "+r.getPlace());
                  }
 
             }

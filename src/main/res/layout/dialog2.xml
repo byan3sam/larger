@@ -14,11 +14,14 @@
         android:textSize="30sp" />
 
     <TextView
-        android:layout_width="382dp"
-        android:layout_height="126dp"
+        android:id="@+id/dia2"
+        android:layout_width="364dp"
+        android:layout_height="160dp"
         android:layout_gravity="center|top"
         android:layout_marginTop="100dp"
+        android:layout_marginBottom="20dp"
         android:text=" הוא משחק בו המטרה לקבל לפחות שלוש פעמים מספר המתחלק ב 7 (5 סיבובים בכל משחק)"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
     <Button

@@ -12,7 +12,7 @@ import java.util.Random;
 public class secondgame extends AppCompatActivity {
     EditText num;
     int rand;
-    static int count=0;
+     int count=0;
     final int min = 1;
     final int max = 100;
     Button b;
@@ -70,6 +70,7 @@ ho.setOnClickListener(new View.OnClickListener() {
                     mes.setText("you lose , try again ");
                     }
                 finum.setText("the number is "+s);
+                    b.setEnabled(false);
                     tryagain.setVisibility(View.VISIBLE);
                     tragain.setVisibility(View.VISIBLE);
                 tryagain.setOnClickListener(new View.OnClickListener() {
